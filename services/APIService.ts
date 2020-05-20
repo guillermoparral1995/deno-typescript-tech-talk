@@ -9,23 +9,15 @@ export default class APIService {
 
     static async getConfig(key: string){
         const { baseURL, version } = APIService.endpointData;
-        try {
-            const response: any = await fetch(`${baseURL}/configs?url=${key}&version=${version}`);
-            const data: Config = await response.json();
-            return data;
-        } catch(err) {
-            console.error(err);
-        }
+        const response: any = await fetch(`${baseURL}/configs?url=${key}&version=${version}`);
+        const data: Config = await response.json();
+        return data;
     }
 
     static async getContent(key: string){
         const { baseURL, version } = APIService.endpointData;
-        try {
-            const response: any = await fetch(`${baseURL}/contents/${key}?version=${version}`);
-            const data: Content = await response.json();
-            return data;
-        } catch(err) {
-            console.error(err);
-        }
+        const response: any = await fetch(`${baseURL}/contents/${key}?version=${version}`);
+        const data: Content = await response.json();
+        return data;
     }
 }

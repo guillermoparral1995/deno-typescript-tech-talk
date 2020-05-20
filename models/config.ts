@@ -1,4 +1,4 @@
-interface Config {
+type Config = {
     name: string,
     enabled: boolean,
     route: string,
@@ -24,7 +24,7 @@ interface Config {
     }
 }
 
-interface ConfigContent {
+type ConfigContent = {
     type: string,
     key: string,
     startTime: string,
