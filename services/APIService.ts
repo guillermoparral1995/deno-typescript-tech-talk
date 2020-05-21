@@ -4,7 +4,7 @@ import { Config, Content } from "../models";
 export default class APIService {
     private static endpointData = {
         baseURL: 'http://api.internal.ml.com/splinter/landings',
-        version: 'test'
+        version: 'test',
     }
 
     static async getConfig(key: string){

@@ -1,9 +1,12 @@
 const path = require('path');
 const env = process.env.NODE_ENV;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-    mode: env || 'development',
+    mode: 'development',
     target: 'node',
+    externals: [nodeExternals()],
     devtool: 'inline-source-map',
     entry: ['@babel/polyfill', './index.ts'],
     module: {
@@ -18,8 +21,11 @@ module.exports = {
     resolve: {
         extensions: [ '.tsx', '.ts', '.js' ],
     },
+    plugins: [
+        new CleanWebpackPlugin(),
+    ],
     output: {
-        filename: 'bundle.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
     },
 };
